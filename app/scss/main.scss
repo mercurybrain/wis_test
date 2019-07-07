@@ -28,6 +28,10 @@ body {
 	input, textarea {
 		border: #666 1px solid;
 		outline: none;
+		&:active {
+			border: #666 1px solid;
+			outline: none;
+		}
 		&:focus:required:invalid {
 			border-color: red;
 		}
@@ -57,11 +61,46 @@ b, strong {
 
 // custom
 
-.inputs {
-	h2 {
-		margin-top: 10%;
+.error {
+	display: inline-block;
+	margin-top: 20px;
+	padding-left: 10px;
+	position: relative;
+	color: #e04c4c;
+	&::before {
+		color: red;
+		content: "!";
+		font-size: 23px;
+		position: absolute;
+		left: -27px;
+		top: 0;
+		display: flex;
+		border: 2px solid red;
+		width: 27px;
+		height: 27px;
+		border-radius: 50%;
+		justify-content: center;
+		align-items: center;
 	}
 }
+table th , table td{
+    text-align: center;
+}
 
+table tr:nth-child(even){
+    background-color: white;
+}
+
+.pagination li{
+	margin-left: 12px;
+	font-size: 18px;
+	&:hover {
+		cursor: pointer;
+		color: lighten($color: $accent, $amount: 15%);
+	}
+	&.active {
+		color: $accent;
+	}
+}
 
 @import "media"; // Always at the end
