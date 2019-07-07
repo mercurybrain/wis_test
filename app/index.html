@@ -32,7 +32,7 @@
 </head>
 
 <body>
-
+	<div id="preloader" class="hidden"></div>
 	<!-- Custom HTML -->
 	<section class="main-wrapper">
 		<div class="container-fluid">
@@ -72,48 +72,64 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-10 offset-1">
+				<div class="col-10 offset-1 hidden" id="commits">
 					<h4>Коммиты</h4>
-			<div class="form-group">
-				<!--		Сколько коммитов показывать 		-->
-				<select class="form-control" name="state" id="maxRows">
-					<option value="5000">Все коммиты</option>
-					<option value="5">5</option>
-					<option value="10">10</option>
-					<option value="15">15</option>
-					<option value="20">20</option>
-					<option value="50">50</option>
-					<option value="70">70</option>
-					<option value="100">100</option>
-				</select>
+					<div class="form-group">
+						<!--		Сколько коммитов показывать 		-->
+						<select class="form-control" name="state" id="maxRows">
+							<option value="5000">Все коммиты</option>
+							<option value="5">5</option>
+							<option value="10">10</option>
+							<option value="15">15</option>
+							<option value="20">20</option>
+							<option value="50">50</option>
+							<option value="70">70</option>
+							<option value="100">100</option>
+						</select>
 
+					</div>
+
+					<table class="table table-striped table-class" id="table-id">
+						<tr class="headers">
+							<th>Имя автора</th>
+							<th>Дата</th>
+							<th>Сообщение</th>
+						</tr>
+					</table>
+
+					<div class='pagination-container'>
+						<nav>
+							<ul class="pagination">
+
+								<li data-page="prev">
+									<span>
+										< <span class="sr-only">(current)
+									</span></span>
+								</li>
+								<!--	Настало время JS -->
+								<li data-page="next" id="prev">
+									<span> > <span class="sr-only">(current)</span></span>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
 			</div>
-
-			<table class="table table-striped table-class" id="table-id">
-				<tr>
-					<th>Имя автора</th>
-					<th>Дата</th>
-					<th>Имя коммитера</th>
-					<th>Сообщение</th>
-				</tr>
-			</table>
-
-			<div class='pagination-container'>
-				<nav>
-					<ul class="pagination">
-
-						<li data-page="prev">
-							<span>
-								< <span class="sr-only">(current)
-							</span></span>
-						</li>
-						<!--	Настало время JS -->
-						<li data-page="next" id="prev">
-							<span> > <span class="sr-only">(current)</span></span>
-						</li>
-					</ul>
-				</nav>
-			</div>
+		</div>
+		<!-- Modal -->
+		<div class="modal fade" id="commitModal" tabindex="-1" role="dialog"
+			aria-labelledby="Информация о коммите" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="modalTitle">Информация о коммите</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						
+					</div>
 				</div>
 			</div>
 		</div>
