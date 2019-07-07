@@ -102,7 +102,7 @@ $(function () {
 				$('.pagination').show();
 			}
 
-			var totalRows = $(table + ' tbody tr').length; // число строк
+			var totalRows = $(table + ' tbody tr:not(:first-child)').length; // число строк
 			$(table + ' tr:gt(0)').each(function () { // каждая строка в таблице без заголовков
 				trnum++;
 				if (trnum > maxRows) {
@@ -113,7 +113,7 @@ $(function () {
 				}
 			});
 			if (totalRows >= maxRows) {
-				var pagenum = Math.ceil(totalRows / maxRows) - 1;  
+				var pagenum = Math.ceil(totalRows / maxRows);  
 				//	кол-во страниц
 				for (var i = 1; i <= pagenum;) { // добавить номер на каждую страницу
 					$('.pagination #prev').before('<li data-page="' + i + '">\
